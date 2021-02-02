@@ -8,3 +8,4 @@ $dbi->log_query_execution_time = false;
 $dbi->auto_retries_on_connection_lost = 5;
 $dbi->connection_lost_retry_interval = 1000000;
 $tests = AB_Tests::get_all_tests();
+$test_var = AB_Tests::get_all_tests_by_variation();
