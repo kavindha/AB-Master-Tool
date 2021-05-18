@@ -334,8 +334,7 @@ function MakeArray(n) {
     p2=  parseFloat(form.p2.value)
     alpha=form.alpha.value
     power=form.power.value
-    if (form.sided[0].checked) { sides = form.sided[0].value }
-    if (form.sided[1].checked) { sides = form.sided[1].value }
+    sides=2;
     ss=form.ss.value
     if (alpha == "") {
         alpha=.05
@@ -350,7 +349,7 @@ function MakeArray(n) {
     sqrt2pq = Math.sqrt(pb * qb * 2) 
     sqrtsumpqs = Math.sqrt(p1 * q1 + p2 * q2) 
     
-    if (form.calc[0].checked) {
+    if (true) {
     if (power=="") {
         power=.80
         form.power.value=format(.80,2) }

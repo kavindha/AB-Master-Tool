@@ -1,0 +1,245 @@
+html, body, .Container
+{
+    height: 100%;
+}
+
+    .Container:before
+    {
+        content: '';
+        height: 100%;
+        float: left;
+    }
+
+.Container{
+    width: 100%;
+}
+
+.Header div
+{
+    display: inline-block;
+}
+
+.actions{  
+    position: relative;
+    float: right;
+    margin-top: 20px;    
+}
+
+.Content
+{
+    position: relative;
+    z-index: 1;
+}
+    .Content:after
+    {
+        content: '';
+        clear: both;
+        display: block;
+    }
+
+.Wrapper
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+    .Wrapper > div
+    {
+        height: 100%;
+    }
+
+.LeftContent
+{      
+      overflow: auto;
+      padding-left: 0px;
+  }
+
+.RightContent
+{    
+    float: right;   
+    overflow: auto;
+    padding-left: 0px;
+}
+
+
+.section{
+    display: none;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+.LeftContent table{
+    width: 100%; 
+    margin-top: 10px; 
+    font-size: 0.8em;
+    border: 1px solid;
+    text-align: center;
+    
+}
+.LeftContent td,.LeftContent th{   
+    border: 1px solid;
+    text-align: center;
+}
+
+#date-range-selector-1-container, #view-selector-container{
+    width: auto;
+    display: inline-block;
+  }
+  #date-range-selector-1-container div, #view-selector-container div, #conversions-date-range-selector div{
+    width: auto;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  #date-range-selector-1-container, .metric,.success, .fail{
+    display: none;
+  }
+
+ .ab_modal {
+    width: 500px;
+    height: auto;
+    position: absolute;
+    left: 45%;
+    top: 25%; 
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+
+  .ab_modal .modal-content{
+    background-color: #FEFEFE;
+    margin: auto;
+    border: 8px solid #D6D6D6;
+    border-radius: 20px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .ab_modal .field div{
+      margin: 5px;
+  }
+
+  .ab_modal .modal-content .btns{
+    text-align: center;
+    margin: 10px;
+  }
+
+  .submit-btn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 11px 31px;
+    margin-right: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  
+  .close-btn{
+    background-color: #E52727;
+    border: none;
+    color: white;
+    padding: 11px 31px;
+    margin-right: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+  .modal-header{
+    padding-bottom: 0px;
+  }
+  .success{
+    border: solid 1px green;
+    text-align: center;
+    background: lightgreen;
+    color: green;
+    padding: 3px;
+    border-radius: 6px;
+  }
+  .fail{
+    border: solid 1px crimson;
+    text-align: center;
+    background: lightcoral;
+    color: crimson;
+    padding: 3px;
+    border-radius: 6px;
+  }
+.show-details h4{
+    color: cornflowerblue;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}
+.tbl-conv{
+  margin: 0px !important
+}
+.tbl-adj-conv th{
+  width: 20%;
+}
+
+.topic, .topic div{
+  padding-left: 0px;
+}
+.sample-size{
+  text-align: right
+}
+
+.sample-size form{
+  display: inline;
+  font-size: 12px;
+}
+.traffic_modal{
+  top: 80%;
+}
+.inline{
+  display: inline-block;
+}
+.variation_data{
+  display: none;
+}
+
+#add-btn,#add-event-btn{
+  height: 30px;
+  width:30px;
+}
+.exp_info_data,.event_data{
+  display: none;
+}
+.exp_info_data .input-field{
+  padding:5px;
+}
+.tbl-adj{
+  margin-bottom: 15px;
+}
+hr{
+  border-top: 3px solid #bbb;
+  width: 106%;
+  margin-left: -15px;
+  margin-right: -20px;
+}
+.slider {
+  z-index: 999999;
+  display: block;
+  position: absolute;
+  width: 5px;
+  background-color: #1ABC9C;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow: visible;
+  user-select: none;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 50%;
+  height: 1.5rem;
+  width: 0.5rem;
+  background-color: #1ABC9C;
+  cursor: col-resize;
+}

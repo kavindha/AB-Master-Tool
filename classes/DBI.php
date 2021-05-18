@@ -224,8 +224,7 @@
 
             foreach ( $data as $key => $value ) $sql .= "'" . $this->escape( $value ) . "', ";
 
-            $sql = substr( $sql, 0, -2 ) . " );";
-
+            $sql = substr( $sql, 0, -2 ) . " );";           
             if ( $result = $this->query( $sql ) ) return true;
             else return false;
 
@@ -251,8 +250,7 @@
 
             }
             $where_condition = ( ! empty( $where_condition ) ) ? "WHERE {$where_condition}" : "";
-            $sql .= implode( ", ", $set_fields ) . " {$where_condition}";
-
+            $sql .= implode( ", ", $set_fields ) . " {$where_condition}";                   
             if ( $result = $this->query( $sql ) ) return true;
             else return false;
 
@@ -545,3 +543,4 @@
         }
 
     }
+    

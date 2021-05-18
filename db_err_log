@@ -1,0 +1,112 @@
+2021-02-04 07:11:03 : Table 'abtesting_dev.TBL_AB_TESTS' doesn't exist : SELECT * FROM experiment e LEFT JOIN TBL_AB_TESTS a ON e.id = a.experiment_id 
+Error Code: 1146
+Trace: \AB-Master.php (4) > \init.php (10) > \AB_Tests.php (8)
+
+2021-02-07 17:24:35 : Unknown column 'traffic' in 'field list' : INSERT INTO `ab_tests` ( `experiment_id`, `element`, `description`, `details`, `justification`, `jira_id`, `start_date`, `traffic`, `status` ) VALUES ( '4', 'sss', 'sss', 'sss', 'sss', '123', '2021-02-24', '', '1' );
+Error Code: 1054
+Trace: \ajax.php (12) > \AB_Tests.php (47)
+
+2021-02-11 18:23:46 : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE e.id= 40' at line 1 : SELECT e.id experiment_id, e.name experiment_name, e.`key` experiment_key, e.created_on experiment_created_on, v.id variation_id, v.caption variation_caption, v.`key` variation_key, v.traffic_distribution traffic_distribution, v.instances instance_count, GROUP_CONCAT(d.category_key SEPARATOR 0x00 ) category_keys, GROUP_CONCAT(d.category_caption SEPARATOR 0x00 ) category_captions, GROUP_CONCAT(d.event_keys SEPARATOR 0x00 ) event_keys, GROUP_CONCAT(d.event_captions SEPARATOR 0x00 ) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x00 ) trigger_count FROM variation v INNER JOIN experiment e ON v.experiment_id = e.id LEFT OUTER JOIN (SELECT d.variation_id, d.category_key, d.category_caption, GROUP_CONCAT(d.event_key SEPARATOR 0x01 ) event_keys, GROUP_CONCAT(d.event_caption SEPARATOR 0x01) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x01) trigger_count FROM (SELECT c.* FROM (SELECT v.id variation_id, IFNULL(c.`key`, 'uncategorized') category_key, IFNULL(c.caption, 'Uncategorized') category_caption, ev.`key` event_key, ev.caption event_caption, SUM(IF(l.id IS NULL, 0, 1)) trigger_count FROM experiment e RIGHT OUTER JOIN variation v ON v.experiment_id = e.id RIGHT OUTER JOIN event ev ON ev.experiment_id = e.id LEFT OUTER JOIN event_category c ON ev.event_category_id = c.id LEFT OUTER JOIN instance i ON i.variation_id = v.id LEFT OUTER JOIN event_log l ON l.event_id = ev.id AND l.instance_id = i.id WHERE e.`key`= 'payment_page' GROUP BY v.id, c.id, ev.id) c GROUP BY c.variation_id, c.category_key, c.event_key) d GROUP BY d.variation_id, d.category_key) d ON v.id = d.variation_id GROUP BY v.id WHERE e.id= 40
+Error Code: 1064
+Trace: \ajax.php (17) > \AB_Tests.php (67) > \AB_Tests.php (24)
+
+2021-02-11 18:25:32 : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE e.id= 40' at line 1 : SELECT e.id experiment_id, e.name experiment_name, e.`key` experiment_key, e.created_on experiment_created_on, v.id variation_id, v.caption variation_caption, v.`key` variation_key, v.traffic_distribution traffic_distribution, v.instances instance_count, GROUP_CONCAT(d.category_key SEPARATOR 0x00 ) category_keys, GROUP_CONCAT(d.category_caption SEPARATOR 0x00 ) category_captions, GROUP_CONCAT(d.event_keys SEPARATOR 0x00 ) event_keys, GROUP_CONCAT(d.event_captions SEPARATOR 0x00 ) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x00 ) trigger_count FROM variation v INNER JOIN experiment e ON v.experiment_id = e.id LEFT OUTER JOIN (SELECT d.variation_id, d.category_key, d.category_caption, GROUP_CONCAT(d.event_key SEPARATOR 0x01 ) event_keys, GROUP_CONCAT(d.event_caption SEPARATOR 0x01) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x01) trigger_count FROM (SELECT c.* FROM (SELECT v.id variation_id, IFNULL(c.`key`, 'uncategorized') category_key, IFNULL(c.caption, 'Uncategorized') category_caption, ev.`key` event_key, ev.caption event_caption, SUM(IF(l.id IS NULL, 0, 1)) trigger_count FROM experiment e RIGHT OUTER JOIN variation v ON v.experiment_id = e.id RIGHT OUTER JOIN event ev ON ev.experiment_id = e.id LEFT OUTER JOIN event_category c ON ev.event_category_id = c.id LEFT OUTER JOIN instance i ON i.variation_id = v.id LEFT OUTER JOIN event_log l ON l.event_id = ev.id AND l.instance_id = i.id WHERE e.`key`= 'payment_page' GROUP BY v.id, c.id, ev.id) c GROUP BY c.variation_id, c.category_key, c.event_key) d GROUP BY d.variation_id, d.category_key) d ON v.id = d.variation_id GROUP BY v.id WHERE e.id= 40
+Error Code: 1064
+Trace: \ajax.php (17) > \AB_Tests.php (68) > \AB_Tests.php (25)
+
+2021-03-10 08:14:27 : Unknown column 'experiment_name' in 'field list' : SELECT experiment_name FROM experiment e
+Error Code: 1054
+Trace: \AB-Master.php (4) > \init.php (15) > \AB_Tests.php (20)
+
+2021-03-10 08:15:01 : Unknown column 'experiment_name' in 'field list' : SELECT experiment_name FROM experiment e
+Error Code: 1054
+Trace: \AB-Master.php (4) > \init.php (15) > \AB_Tests.php (20)
+
+2021-03-10 08:15:24 : Unknown column 'experiment_name' in 'field list' : SELECT experiment_name FROM experiment e
+Error Code: 1054
+Trace: \AB-Master.php (4) > \init.php (15) > \AB_Tests.php (20)
+
+2021-03-10 08:15:34 : Unknown column 'experiment_name' in 'field list' : SELECT experiment_name FROM experiment e
+Error Code: 1054
+Trace: \AB-Master.php (4) > \init.php (15) > \AB_Tests.php (20)
+
+2021-03-10 08:16:01 : Unknown column 'experiment_name' in 'field list' : SELECT experiment_name FROM experiment e
+Error Code: 1054
+Trace: \AB-Master.php (4) > \init.php (15) > \AB_Tests.php (20)
+
+2021-03-17 10:15:26 : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY v.id' at line 1 : SELECT e.id experiment_id, e.name experiment_name, e.`key` experiment_key, e.created_on experiment_created_on, v.id variation_id, v.caption variation_caption, v.`key` variation_key, v.traffic_distribution traffic_distribution, v.instances instance_count, GROUP_CONCAT(d.category_key SEPARATOR 0x00 ) category_keys, GROUP_CONCAT(d.category_caption SEPARATOR 0x00 ) category_captions, GROUP_CONCAT(d.event_keys SEPARATOR 0x00 ) event_keys, GROUP_CONCAT(d.event_captions SEPARATOR 0x00 ) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x00 ) trigger_count FROM variation v INNER JOIN experiment e ON v.experiment_id = e.id LEFT OUTER JOIN (SELECT d.variation_id, d.category_key, d.category_caption, GROUP_CONCAT(d.event_key SEPARATOR 0x01 ) event_keys, GROUP_CONCAT(d.event_caption SEPARATOR 0x01) event_captions, GROUP_CONCAT(d.trigger_count SEPARATOR 0x01) trigger_count FROM (SELECT c.* FROM (SELECT v.id variation_id, IFNULL(c.`key`, 'uncategorized') category_key, IFNULL(c.caption, 'Uncategorized') category_caption, ev.`key` event_key, ev.caption event_caption, SUM(IF(l.id IS NULL, 0, 1)) trigger_count FROM experiment e RIGHT OUTER JOIN variation v ON v.experiment_id = e.id RIGHT OUTER JOIN event ev ON ev.experiment_id = e.id LEFT OUTER JOIN event_category c ON ev.event_category_id = c.id LEFT OUTER JOIN instance i ON i.variation_id = v.id LEFT OUTER JOIN event_log l ON l.event_id = ev.id AND l.instance_id = i.id WHERE e.`key`= 'payment_page' GROUP BY v.id, c.id, ev.id) c GROUP BY c.variation_id, c.category_key, c.event_key) d GROUP BY d.variation_id, d.category_key) d ON v.id = d.variation_id WHERE e.id=  GROUP BY v.id 
+Error Code: 1064
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (17) > \AB_Tests.php (134) > \AB_Tests.php (85)
+
+2021-03-17 10:15:26 : Cannot add or update a child row: a foreign key constraint fails (`abtesting_dev`.`adjustments`, CONSTRAINT `FK_exp_adjustment_exp_id` FOREIGN KEY (`experiment_id`) REFERENCES `experiment` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION) : INSERT INTO `adjustments` ( `experiment_id`, `date`, `adjustment`, `jira_id`, `other_details`, `traffic_allocation`, `current_conversions` ) VALUES ( '', '2021-03-17 10:15:26', '', '', '', '', 'a:0:{}' );
+Error Code: 1452
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (17) > \AB_Tests.php (144)
+
+2021-03-31 07:11:44 : Unknown column 'experiment_id' in 'field list' : INSERT INTO `experiment` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '', '2021-03-31 07:11:44', 'aaa', 'a1', '50' );
+Error Code: 1054
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-03-31 07:11:45 : Unknown column 'experiment_id' in 'field list' : INSERT INTO `experiment` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '', '2021-03-31 07:11:44', 'bbb', 'b1', '50' );
+Error Code: 1054
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-03-31 07:12:40 : Unknown column 'experiment_id' in 'field list' : INSERT INTO `experiment` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '48', '2021-03-31 07:12:40', 'aaa', 'a1', '50' );
+Error Code: 1054
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-03-31 07:12:40 : Unknown column 'experiment_id' in 'field list' : INSERT INTO `experiment` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '48', '2021-03-31 07:12:40', 'bbb', 'b1', '50' );
+Error Code: 1054
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-03-31 07:39:43 : Duplicate entry '48-a1' for key 'UK_variation' : INSERT INTO `variation` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '48', '2021-03-31 07:39:43', 'aaa', 'a1', '50' );
+Error Code: 1062
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-03-31 07:39:44 : Duplicate entry '48-b1' for key 'UK_variation' : INSERT INTO `variation` ( `experiment_id`, `created_on`, `caption`, `key`, `traffic_distribution` ) VALUES ( '48', '2021-03-31 07:39:43', 'bbb', 'b1', '50' );
+Error Code: 1062
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (50) > \AB_Tests.php (249)
+
+2021-04-07 17:51:22 : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DATE(l.date) BETWEEN '2021' AND '2021'
+            GROUP BY DATE(l.date),' at line 15 : SELECT Date, 
+                sum(case when cat = 'Mobile' then Conversions end) as Mobile,
+                sum(case when cat = 'Desktop' then Conversions  end) as Desktop
+             FROM 
+            (SELECT  
+              c.caption AS `cat`,
+              CAST(l.date AS DATE) AS Date,
+              COUNT(*) AS Conversions  
+            FROM event e
+              INNER JOIN event_category c
+                ON e.event_category_id = c.id
+              INNER JOIN event_log l
+                ON l.event_id = e.id
+            WHERE e.experiment_id = 40 AND 
+            WHERE DATE(l.date) BETWEEN '2021' AND '2021'
+            GROUP BY DATE(l.date), e.id ) results  
+            group by date
+            Order by date
+Error Code: 1064
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (60) > \AB_Tests.php (323)
+
+2021-04-07 17:52:26 : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE DATE(l.date) BETWEEN '2021-01-02' AND '2021-04-07'
+            GROUP BY D' at line 15 : SELECT Date, 
+                sum(case when cat = 'Mobile' then Conversions end) as Mobile,
+                sum(case when cat = 'Desktop' then Conversions  end) as Desktop
+             FROM 
+            (SELECT  
+              c.caption AS `cat`,
+              CAST(l.date AS DATE) AS Date,
+              COUNT(*) AS Conversions  
+            FROM event e
+              INNER JOIN event_category c
+                ON e.event_category_id = c.id
+              INNER JOIN event_log l
+                ON l.event_id = e.id
+            WHERE e.experiment_id = 40 AND 
+            WHERE DATE(l.date) BETWEEN '2021-01-02' AND '2021-04-07'
+            GROUP BY DATE(l.date), e.id ) results  
+            group by date
+            Order by date
+Error Code: 1064
+Trace: C:\xampp\htdocs\tool\AB-Master-Tool\ajax.php (60) > \AB_Tests.php (323)
+
